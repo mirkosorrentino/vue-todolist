@@ -6,3 +6,18 @@
 }
 
 /* OUTPUT */
+
+h1 {
+    color: red;
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.done {
+    text-decoration: line-through;
+}

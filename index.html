@@ -7,8 +7,30 @@
     <title>To-Do List</title>
     <!-- Custom CSS style -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- VUE script -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+    <div id="app">
+        <div class="wrapper">
+            <h1>Vue TO-DO List</h1>
+            <div class="to-do">
+                <p class="error" v-show="error">To-Do can't be empty</p>
+                <input type="text" placeholder="Add a new to-do" v-model.trim="newToDo" @keyup.enter="addNewToDo">
+                <button @click="addNewToDo">Add</button>
+            </div>
+
+            <ul class="to-do-list" v-if="toDos.length > 0">
+                <li v-for="(toDo, index) in toDos">
+                    <p :class={'done': toDo.done}>{{ toDo.text }}</p>
+                    <span class="delete" @click="removeToDo(index)">&cross;</span>
+                </li>
+            </ul>
+            <div class="empty-list" v-else>
+                <h3>You finished! You got nothing else to do!</h3>
+            </div>
+        </div>
+    </div>
     <!-- Custom JS script -->
     <script src="js/script.js"></script>
 </body>
